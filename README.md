@@ -2,7 +2,7 @@
 
 Surface Duo SDK for Flutter
 
-![Alt Text](surface_duo_demo.gif)
+![Alt Text](https://github.com/dreamsoftin/surface_duo/blob/master/surface_duo_demo.gif)
 ## Methods
 * isDualScreenDevice
 * isAppSpanned
