@@ -4,8 +4,12 @@ Surface Duo SDK for Flutter
 
 ![Alt Text](surface_duo_demo.gif)
 ## Methods
+* isDualScreenDevice
+* isAppSpanned
+* getHingeAngle
+* getHingeSize
 
-
-
+## TODO
+* Add event listeners
 
 
