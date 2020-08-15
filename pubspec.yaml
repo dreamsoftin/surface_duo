@@ -1,8 +1,7 @@
 name: surface_duo
-description: A new flutter plugin project.
+description: Surface Duo SDK for Flutter
 version: 0.0.1
-author:
-homepage:
+homepage: https://github.com/dreamsoftin/surface_duo
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -28,7 +27,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: dev.dsi.duosdk.surface_duo
+        package: dev.dsi.duosdk
         pluginClass: SurfaceDuoPlugin
 
   # To add assets to your plugin package, add an assets section, like this:

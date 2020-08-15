@@ -1,4 +1,4 @@
-group 'dev.dsi.duosdk.surface_duo'
+group 'dev.dsi.duosdk'
 version '1.0-SNAPSHOT'
 
 buildscript {

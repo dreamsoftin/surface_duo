@@ -1,4 +1,4 @@
-package dev.dsi.duosdk.surface_duo
+package dev.dsi.duosdk
 
 import androidx.annotation.NonNull;
 

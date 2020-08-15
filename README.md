@@ -1,6 +1,6 @@
 # surface_duo
 
-A new flutter plugin project.
+Surface Duo SDK for Flutter
 
 ## Getting Started
 

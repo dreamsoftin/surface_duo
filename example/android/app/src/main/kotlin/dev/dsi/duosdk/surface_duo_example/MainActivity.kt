@@ -1,4 +1,4 @@
-package dev.dsi.duosdk.surface_duo_example
+package dev.dsi.duosdk_example
 
 import io.flutter.embedding.android.FlutterActivity
 
