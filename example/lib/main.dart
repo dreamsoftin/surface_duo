@@ -53,16 +53,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // Surface Duo: We'll use this simple function to query the APIs and report their values
   Future<void> _updateDualScreenInfo() async {
-    print("_updateDualScreenInfo() - Start");
+    // print("_updateDualScreenInfo() - Start");
     _isDualScreenDevice = await SurfaceDuo.isDualScreenDevice;
     _isAppSpanned = await SurfaceDuo.isAppSpanned;
     _hingeAngle = await SurfaceDuo.getHingeAngle;
     _hingeSize = await SurfaceDuo.getHingeSize;
-    print("_isDualScreenDevice: $_isDualScreenDevice");
-    print("_isAppSpanned: $_isAppSpanned");
-    print("_hingeAngle: $_hingeAngle");
-    print("_hingeSize: $_hingeSize");
-    print("_updateDualScreenInfo() - End");
+    // print("_isDualScreenDevice: $_isDualScreenDevice");
+    // print("_isAppSpanned: $_isAppSpanned");
+    // print("_hingeAngle: $_hingeAngle");
+    // print("_hingeSize: $_hingeSize");
+    // print("_updateDualScreenInfo() - End");
   }
 
   @override
@@ -71,10 +71,14 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: FutureBuilder<void>(
-        future: _updateDualScreenInfo(),
-        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-          return _createPage();
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return FutureBuilder<void>(
+            future: _updateDualScreenInfo(),
+            builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+              return _createPage();
+            },
+          );
         },
       ),
       floatingActionButton: FloatingActionButton(
@@ -86,8 +90,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _createPage() {
-    print("CreatePage()");
-
     if (!_isDualScreenDevice || (_isDualScreenDevice && !_isAppSpanned)) {
       // We are not on a dual-screen device or
       // we are but we are not spanned
@@ -102,12 +104,12 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Flexible(
               flex: 1,
-              child: Center(child: FlutterLogo(size: 200.0)),
+              child: _buildBody(),
             ),
             SizedBox(height: _hingeSize.toDouble()),
             Flexible(
               flex: 1,
-              child: _buildBody(),
+              child: Center(child: FlutterLogo(size: 200.0)),
             ),
           ],
         );
@@ -116,12 +118,12 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Flexible(
               flex: 1,
-              child: Center(child: FlutterLogo(size: 200.0)),
+              child: _buildBody(),
             ),
             SizedBox(width: _hingeSize.toDouble()),
             Flexible(
               flex: 1,
-              child: _buildBody(),
+              child: Center(child: FlutterLogo(size: 200.0)),
             ),
           ],
         );
@@ -130,7 +132,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildBody() {
-    print("_buildBody()");
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
